@@ -1,7 +1,8 @@
-function setup() {
-  // put setup code here
+function setup(){
+    createCanvas(150,80);
 }
 
-function draw() {
-  // put drawing code here
+function draw(){
+    circle(40,40,60);
+    square(80,10,60);
 }
