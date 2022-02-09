@@ -15,7 +15,7 @@ function setup() {
     imageMode(CENTER);
 
     let horizontal = random(0, 400);
-    let vertical = random(150, 250);
+    let vertical = random(150, 290);
     let horizontal2 = random(400, 500);
     let vertical2 = random(300, 425);
 
