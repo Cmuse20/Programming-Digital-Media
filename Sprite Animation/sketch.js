@@ -22,7 +22,7 @@ function setup() {
     character = new Character(spriteSheet, 0, vertical);
     character2 = new Character(spriteSheet2, horizontal, 300);
     character3 = new Character(spriteSheet3, horizontal2, 150);
-    character4 = new Character(spriteSheet4, 420, vertical2);;
+    character4 = new Character(spriteSheet4, 420, vertical2);
 }
 
 function keyPressed() {
