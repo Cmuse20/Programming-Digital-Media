@@ -17,7 +17,7 @@ function setup() {
     let horizontal = random(0, 400);
     let vertical = random(150, 250);
     let horizontal2 = random(400, 500);
-    let vertical2 = random(300, 600);
+    let vertical2 = random(300, 425);
 
     character = new Character(spriteSheet, 0, vertical);
     character2 = new Character(spriteSheet2, horizontal, 265);
