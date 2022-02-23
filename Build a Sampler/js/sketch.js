@@ -4,6 +4,7 @@ let sounds = new Tone.Players({
     theHeart: 'media/04-theHeart.mp3',
     FamilyFeud: 'media/FamilyFeud-Buzzer3.mp3'
 })
+var buff = Players.get();
 
 let soundNames = ['shot', 'through', 'theHeart', 'FamilyFeud'];
 let buttons = [];
