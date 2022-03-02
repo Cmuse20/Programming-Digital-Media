@@ -77,6 +77,8 @@ function draw() {
 function keyPressed() {
     let toPlay = notes[key];
     console.log(toPlay);
+    
+    Tone.start();
 
     osc.frequency.value = toPlay;
     ampEnv.triggerAttackRelease('8n');
