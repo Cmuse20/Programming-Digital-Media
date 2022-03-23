@@ -19,10 +19,7 @@ let feedbackDelay = new Tone.FeedbackDelay("8n", 0.5).toDestination();
 let colors = ['red', 'orange', 'yellow', '#66ff00', 'cyan', 'blue', 'magenta', 'brown', 'white', 'black'];
 let brushColor;
 let word = "You can also press the number correlating to the button in order from 1 to 10";
-// let value = createInput('');
 let numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '$'];
-
-let indexing = 0;
 
 function drawWords() {
 
@@ -32,6 +29,9 @@ function setup() {
     createCanvas(displayWidth, displayHeight);
     sounds.connect(feedbackDelay);
     feedbackDelay.toDestination();
+        
+    var newBut = createButton("reset");
+    newBut.mousePressed(resetSketch);
 
     soundNames.forEach((word, index) => {
         buttons[index] = createButton(word);
