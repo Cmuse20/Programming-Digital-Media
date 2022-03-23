@@ -1,15 +1,15 @@
 let sounds = new Tone.Players({
-        shot: 'media/02-shot.mp3',
-        through: 'media/03-through.mp3',
-        theHeart: 'media/04-theHeart.mp3',
-        FamilyFeud: 'media/FamilyFeud-Buzzer3.mp3',
-        andYoure: 'media/05-andYoure.mp3',
-        to: 'media/06-to.mp3',
-        blame: 'media/07-blame.mp3',
-        darlin: 'media/08-darlin.mp3',
-        you: 'media/09-you.mp3',
-        love: 'media/11-love.mp3'
-    })
+    shot: 'media/02-shot.mp3',
+    through: 'media/03-through.mp3',
+    theHeart: 'media/04-theHeart.mp3',
+    FamilyFeud: 'media/FamilyFeud-Buzzer3.mp3',
+    andYoure: 'media/05-andYoure.mp3',
+    to: 'media/06-to.mp3',
+    blame: 'media/07-blame.mp3',
+    darlin: 'media/08-darlin.mp3',
+    you: 'media/09-you.mp3',
+    love: 'media/11-love.mp3',
+})
 
 let soundNames = ['shot', 'through', 'theHeart', 'FamilyFeud', 'andYoure', 'to', 'blame', 'darlin', 'you', 'love'];
 let buttons = [];
@@ -20,8 +20,11 @@ let brushColor;
 let word = "You can also press the number correlating to the button in order from 1 to 10";
 let numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '$'];
 
-function drawWords() {
 
+let song;
+
+function preload() {
+    song = loadSound('media/cartoon-laugh.mp3');
 }
 
 function setup() {
@@ -29,13 +32,15 @@ function setup() {
     sounds.connect(feedbackDelay);
     feedbackDelay.toDestination();
 
+    cnv.mousePressed(canvasPressed);
+
     soundNames.forEach((word, index) => {
         buttons[index] = createButton(word);
         buttons[index].style('outline', 'none');
         buttons[index].style('background-color', colors[index]);
         buttons[index].size(30, 30);
         buttons[index].style("font-size", "0px");
-        buttons[index].position(4, (index * 30));
+        buttons[index].position(4, (index * 70));
         buttons[index].mousePressed(() => playSound(word));
     })
 
@@ -45,7 +50,7 @@ function setup() {
         buttons[index].style('background-color', 'white');
         buttons[index].size(30, 30);
         buttons[index].style("font-size", "20px");
-        buttons[index].position(30, (index * 30));
+        buttons[index].position(30, (index * 70));
         buttons[index].mousePressed(() => playSound(word));
 
     })
@@ -64,26 +69,26 @@ function draw() {
     text("You can also press the number/symbol associated with each color", 50, 400);
 
     if (mouseIsPressed) {
-        if (mouseX <= 34) {
-            if (mouseY <= 34) {
+        if (mouseX <= 30) {
+            if (mouseY <= 28) {
                 brushColor = color('red');
-            } else if (mouseY <= 66) {
+            } else if (29 <= mouseY <= 58) {
                 brushColor = color('orange');
-            } else if (mouseY <= 98) {
+            } else if (59 <= mouseY <= 88) {
                 brushColor = color('yellow');
-            } else if (mouseY <= 130) {
+            } else if (89 <= mouseY <= 118) {
                 brushColor = color('#66ff00');
-            } else if (mouseY <= 162) {
+            } else if (119 <= mouseY <= 148) {
                 brushColor = color('cyan');
-            } else if (mouseY <= 194) {
+            } else if (149 <= mouseY <= 178) {
                 brushColor = color('blue');
-            } else if (mouseY <= 226) {
+            } else if (179 <= mouseY <= 208) {
                 brushColor = color('magenta');
-            } else if (mouseY <= 258) {
+            } else if (209 <= mouseY <= 238) {
                 brushColor = color('brown');
-            } else if (mouseY <= 290) {
+            } else if (239 <= mouseY <= 268) {
                 brushColor = color('white');
-            } else if (mouseY <= 322) {
+            } else if (269 <= mouseY <= 298) {
                 brushColor = color('black');
             }
         }
@@ -138,6 +143,12 @@ function keyPressed() {
 }
 
 function mousePressed() {
+    if (song.isPlaying()) {
+        // .isPlaying() returns a boolean
+        song.pause(); // .play() will resume from .pause() position
+    } else {
+        song.play();
+    }
     playSound();
 }
 
