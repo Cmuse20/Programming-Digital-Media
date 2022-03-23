@@ -10,7 +10,6 @@ let sounds = new Tone.Players({
         you: 'media/09-you.mp3',
         love: 'media/11-love.mp3'
     })
-    // var buff = Players.get();
 
 let soundNames = ['shot', 'through', 'theHeart', 'FamilyFeud', 'andYoure', 'to', 'blame', 'darlin', 'you', 'love'];
 let buttons = [];
@@ -29,9 +28,6 @@ function setup() {
     createCanvas(displayWidth, displayHeight);
     sounds.connect(feedbackDelay);
     feedbackDelay.toDestination();
-        
-    var newBut = createButton("reset");
-    newBut.mousePressed(resetSketch);
 
     soundNames.forEach((word, index) => {
         buttons[index] = createButton(word);
