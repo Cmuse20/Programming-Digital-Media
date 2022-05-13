@@ -80,7 +80,7 @@ function gameVideo() {
     textFont(olefont);
     textSize(24);
     text('GeauxClean Demo', 300, 250);
-    text('Check out the GeauxClean demo with the link below!', 150, 350);
+    text('Check out the GeauxClean demo with the link below!\nClick the screen to move between the website!', 150, 350);
     video = createA('https://youtu.be/f5BGDKJOtHw', 'GeauxClean demo', '_blank');
     video.position(12, 450);
 }
